@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts",
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "bruandreo",
@@ -28,6 +29,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.17",
     "morgan": "^1.10.0",
+    "ts-jest": "^26.5.1",
     "typeorm": "^0.2.31"
   }
 }
