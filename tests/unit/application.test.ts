@@ -14,4 +14,12 @@ describe('#Application', () => {
 
     expect(listen).toHaveBeenCalled();
   });
+
+  test('should call app.use when middleares are loadeds', () => {
+    const use = jest.spyOn(app.app, "use");
+
+    app["middlewares"]();
+
+    expect(use).toHaveBeenCalled();
+  });
 });
