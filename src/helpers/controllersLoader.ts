@@ -1,3 +1,5 @@
+import HurtsControllers from '../controllers/hurtsController';
+
 export default (): Array<any> => [
-  // controllers here
+  new HurtsControllers()
 ];
