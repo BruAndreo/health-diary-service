@@ -1,4 +1,4 @@
-import Application from "../../src/server/application";
+import Application from "../../../src/server/application";
 
 describe('#Application', () => {
   let app: Application;
