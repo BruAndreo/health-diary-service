@@ -5,8 +5,8 @@ import { Controller, Post } from '@overnightjs/core';
 class HurtsControllers {
 
   @Post()
-  public newHurt(req: Request, res: Response): Response {
-    return res.json({ message: 'hello' });
+  public async newHurt(req: Request, res: Response): Promise<Response> {
+    return res.status(201).json({ idHurt: 1 });
   }
 
 }
