@@ -1,4 +1,4 @@
-import HurtsControllers from "../../../src/controllers/hurtsController";
+import SymptonsController from "../../../src/controllers/symptomsController";
 import mockRequest from '../mocks/request';
 import mockResponse from '../mocks/response';
 
@@ -11,20 +11,20 @@ const correctBody = {
   finishedAt: null
 };
 
-describe('#HurtsController', () => {
-  let controller: HurtsControllers;
+describe('#SymptomsController', () => {
+  let controller: SymptonsController;
 
   beforeEach(() => {
-    controller = new HurtsControllers();
+    controller = new SymptonsController();
   });
 
-  test('should return `id` when create new hurt', async () => {
-    const result = await controller.newHurt(
+  test('should return `id` when create new symptom', async () => {
+    const result = await controller.newSymptom(
       mockRequest({}, {...correctBody}),
       mockResponse()
     );
 
     expect(result.status).toHaveBeenCalledWith(201);
-    expect(result.json).toHaveBeenCalledWith({ idHurt: 1 });
+    expect(result.json).toHaveBeenCalledWith({ idSymptom: 1 });
   });
 });

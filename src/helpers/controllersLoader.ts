@@ -1,5 +1,5 @@
-import HurtsControllers from '../controllers/hurtsController';
+import SymptonsController from '../controllers/symptomsController';
 
 export default (): Array<any> => [
-  new HurtsControllers()
+  new SymptonsController()
 ];
