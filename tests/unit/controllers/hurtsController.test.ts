@@ -1,5 +1,6 @@
-import { Request, Response } from 'express';
 import HurtsControllers from "../../../src/controllers/hurtsController";
+import mockRequest from '../mocks/request';
+import mockResponse from '../mocks/response';
 
 const correctBody = {
   type: 'DOR',
@@ -10,17 +11,6 @@ const correctBody = {
   finishedAt: null
 };
 
-const mockRequest = {
-  body: { ...correctBody }
-} as any as Request;
-
-const mockResponse = () => {
-  const res = {} as any;
-  res.status = jest.fn().mockReturnValue(res);
-  res.json = jest.fn().mockReturnValue(res);
-  return res;
-};
-
 describe('#HurtsController', () => {
   let controller: HurtsControllers;
 
@@ -29,7 +19,10 @@ describe('#HurtsController', () => {
   });
 
   test('should return `id` when create new hurt', async () => {
-    const result = await controller.newHurt(mockRequest, mockResponse());
+    const result = await controller.newHurt(
+      mockRequest({}, {...correctBody}),
+      mockResponse()
+    );
 
     expect(result.status).toHaveBeenCalledWith(201);
     expect(result.json).toHaveBeenCalledWith({ idHurt: 1 });
