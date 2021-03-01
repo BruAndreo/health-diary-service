@@ -7,7 +7,7 @@ describe('#ControllerLoader', () => {
   test('should return an array when called', () => {
     const result = controllersLoader();
 
-    expect(result).toEqual([]);
+    expect(result).toBeDefined();
   });
 
 });
