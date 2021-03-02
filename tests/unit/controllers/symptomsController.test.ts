@@ -18,13 +18,15 @@ describe('#SymptomsController', () => {
     controller = new SymptonsController();
   });
 
-  test('should return `id` when create new symptom', async () => {
+  test('should return `idSymptom` when create new symptom', async () => {
     const result = await controller.newSymptom(
       mockRequest({}, {...correctBody}),
       mockResponse()
     );
 
     expect(result.status).toHaveBeenCalledWith(201);
-    expect(result.json).toHaveBeenCalledWith({ idSymptom: 1 });
+
+    const idSymptom = (result.json as any).idSymptom;
+    expect(idSymptom).not.toBeNull();
   });
 });
