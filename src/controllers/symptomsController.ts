@@ -6,7 +6,16 @@ class SymptonsController {
 
   @Post()
   public async newSymptom(req: Request, res: Response): Promise<Response> {
-    return res.status(201).json({ idSymptom: 1 });
+    try {
+      if (!req.body.type || !req.body.description) {
+        throw new Error(`${!req.body.type ? "Type" : "Description"} attribute is required`);
+      }
+
+      return res.status(201).json({ idSymptom: 1 });
+    }
+    catch (e) {
+      return res.status(400).json({ message: e.message });
+    }
   }
 
 }
